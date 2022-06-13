@@ -1,10 +1,10 @@
 import '../styles/App.scss';
-import MyProjects from  './MyProjects';
+import CurrentProject from  './CurrentProject';
 
 function App() {
   return (
     <div className="App">
-        <MyProjects/>
+        <CurrentProject/>
     </div>
   );
 }
