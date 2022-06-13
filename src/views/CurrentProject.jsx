@@ -248,7 +248,7 @@ const MyProjects = (props) => {
 
 
             <div className="current-project__main__questions">
-                
+
             </div>
         </div>
         
@@ -263,8 +263,9 @@ const MyProjects = (props) => {
                 <div className="current-project__main__footer__about-text">Контакты</div>
             </div>
         </div>
-      </div>
     </div>
+
+ </div>
   );
 }
 

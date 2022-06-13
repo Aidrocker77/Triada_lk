@@ -1,10 +1,10 @@
 import '../styles/App.scss';
-import CurrentProject from  './CurrentProject';
+import BaseKnowledge from  './BaseKnowledge';
 
 function App() {
   return (
     <div className="App">
-        <CurrentProject/>
+        <BaseKnowledge/>
     </div>
   );
 }
