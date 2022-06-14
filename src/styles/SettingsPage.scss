@@ -150,8 +150,7 @@
 
         &__project {
             padding: 20px;
-            display: grid;
-            grid-auto-flow: row;
+            /* display: grid; */
             align-items: start;
             
             background: #FFFFFF;
@@ -180,39 +179,76 @@
 
             &-list {
                 margin-top: 20px;
-
+                height: 1fr;
                 display: grid;
                 grid-auto-flow: row;
 
                 gap: 12px;
+                
+            &__data{
+                display: grid;
+                align-self: start;
+                justify-self: start;
+                &-descr{
+                    margin-bottom: 9px;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 100%;
+                }
+                &-current{
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 155%;
+                    color: #A3AED0;
+                }
+            }
             }
             
 
             &-link {
                 display: grid;
+                position: relative;
                 &__label{
                     font-weight: 400;
                     font-size: 14px;
                     line-height: 100%;
                     color: #2B2B2B;
                     margin-bottom: 10px;
+                    span{
+                        color:#F0C988;
+                    }
                 }
                 &__input{
                     border: 1px solid #E0E5F2;
                     border-radius: 5px;
                     height: 42px;
-                    padding-left: 15px;
-                    
+                    padding: 0 30px 0 15px;
+                    position: relative;
+
                 }
                 &__input::placeholder{
                     font-size: 14px;
+                    font-weight: 400;
+                    line-height: 100%;
+                    color: #A3AED0;
+                }
+                &__icon{
+                    position: absolute;
+                    bottom: 0;
+                    right: 11px;
+                    top: 39px;
+                    z-index: 10;                   
+                }
+                &__icon:active{
+                    fill:#707ca0;
                 }
                 &__text{
                     font-weight: 400;
                     font-size: 14px;
                     line-height: 100%;
-                    color: #2B2B2B;
+                    color: #A3AED0;
                 }
+                
             }
             &-button{
                 font-weight: 500;
@@ -222,8 +258,10 @@
                 background: #254587;
                 border-radius: 5px;
                 width: 140px;
-                height: 46px;
-            }
+                height: 46px;   
+                border:none;  
+                cursor: pointer;           
+            }            
         }
 
         &__footer {
@@ -261,5 +299,8 @@
                 }
             }
         }
+    }
+    .active-buttoon{
+        background: #A3AED0;
     }
 }
