@@ -1,0 +1,176 @@
+
+.authorization{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-auto-flow: column;
+
+    position: relative;
+
+    grid-template-columns: 1fr 1fr ;   
+
+    background: #fff;
+    &__form-wrapper{
+        display: grid;
+        padding: 25px 0;
+        grid-template-columns: 1fr 400px 1fr ;
+        grid-template-rows: 10vh 1fr 10vh ;
+        grid-template-areas:
+            ". a ."
+            ". b ."
+            ". c .";
+            &__link{
+                grid-area: a;
+                align-self: start;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 30px;
+                cursor: pointer;
+
+                color: #A3AED0;
+            }
+            &__form{
+                display: grid;
+                width: 100%;
+                grid-area: b;
+                align-self: center;
+                align-items: center;
+                justify-self: center;
+            }
+            &__footer-rights{
+                grid-area: c;
+                align-self: end;
+                white-space: nowrap;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 24px;
+                color: #A3AED0;
+            }
+    }
+    &__logo-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 300px 1fr;
+        grid-template-rows: 20vh 1fr 10vh;
+        grid-template-areas:
+            ". . ."
+            ". b ."
+            ". c . ";
+        background: url('./bg__auth.png') no-repeat;
+        padding: 25px 0; 
+        border-radius: 0px 0px 0px 157.396px;   
+        &__logo{
+            grid-area: b;
+            background: url('./big__logo.svg') no-repeat;
+        }    
+        &__nav{
+            grid-area: c;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 33px;
+            align-self: end;
+            justify-content: center;
+
+            &-link{
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 24px;
+                text-align: center;
+                color: #FFFFFF;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.form{
+    position: relative;
+    &__form-title{
+        font-weight: 700;
+        font-size: 34px;
+        line-height: 56px;
+        color: #2B2B2B;
+    }
+    &__form-prompt{
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 100%;
+        color: #A3AED0;
+        margin-bottom: 52px;
+    }
+    &__form-email{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        height:  50px;
+        padding-left: 19px;
+        color: #A3AED0;
+        border: 1px solid #E0E5F2;
+        border-radius: 5px;
+        margin-bottom: 24px;
+    }
+    &__form-password{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        height:  50px;
+        padding-left: 19px;
+        color: #A3AED0;
+        border: 1px solid #E0E5F2;
+        border-radius: 5px;
+        margin-bottom: 24px;
+    }
+    &__form-label{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        color:#2B2B2B;
+        margin-bottom: 13px;
+        span{
+            color:#F0C988;
+        }
+    }
+    &__form-action{
+        display: grid;
+        grid-template-columns: 1fr 4fr 5fr;
+        align-items: center;
+        margin-bottom: 31px;
+        &__memo-pass{
+            width: 18px;
+            height: 18px;
+            background-color: #F0C988;
+            border-radius: 2px;
+        }
+        &__restore-pass{
+            display: grid;
+            justify-self: end;
+            color:#254289;
+            cursor: pointer;
+        }
+    }
+    &__form-button{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 54px;
+        color: #FFFFFF;
+        background: #254289;
+        border-radius: 5px;
+        margin-bottom: 25px;
+        cursor: pointer;
+    }
+    &__form-link-create-account{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 26px;
+        color: #2B2B2B;
+        span{
+            color:#254289;            
+            cursor: pointer;
+        }
+    }
+}
