@@ -1,10 +1,10 @@
 import '../styles/App.scss';
-import BaseKnowledge from  './BaseKnowledge';
+import Authorization from  './Authorization';
 
 function App() {
   return (
     <div className="App">
-        <BaseKnowledge/>
+        <Authorization/>
     </div>
   );
 }
