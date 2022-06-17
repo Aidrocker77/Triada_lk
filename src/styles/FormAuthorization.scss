@@ -1,5 +1,10 @@
 .form{
     position: relative;
+    display: grid;
+    width: 100%;
+    align-self: center;
+    align-items: center;
+    justify-self: center;
     &__form-title{
         font-weight: 700;
         font-size: 34px;
@@ -57,7 +62,7 @@
     }
     &__form-action{
         display: grid;
-        grid-template-columns: 1fr 4fr 5fr;
+        grid-template-columns:  5fr 5fr;
         align-items: center;
         margin-bottom: 31px;
         &__memo-pass{
@@ -82,18 +87,6 @@
             z-index: -1;
             background-color:#fff;
         }
-    }
-    &__form-button{
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        height: 54px;
-        color: #FFFFFF;
-        background: #254289;
-        border-radius: 5px;
-        margin-bottom: 25px;
-        cursor: pointer;
     }
     &__form-link-create-account{
         font-weight: 400;

@@ -48,12 +48,7 @@
                 }
             }
             &__form{
-                display: grid;
-                width: 100%;
                 grid-area: b;
-                align-self: center;
-                align-items: center;
-                justify-self: center;
             }
             &__footer-rights{
                 grid-area: c;

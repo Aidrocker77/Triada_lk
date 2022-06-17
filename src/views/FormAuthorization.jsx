@@ -1,3 +1,7 @@
+import CastomButton from './CastomButton';
+import {Checkbox, FormControlLabel} from '@mui/material';
+
+
 import '../styles/FormAuthorization.scss'
 
 const FormAuthorization=()=>{
@@ -21,14 +25,17 @@ const FormAuthorization=()=>{
                     placeholder="Ваш пароль" 
                     className="form__form-input" />                  
 
-                    <div className="form__form-action">
-                        <input type="checkbox" id='memo-pass'  placeholder="Запомнить меня" className="form__form-action__memo-pass" />
-                        <span className='castom__checkbox' />
-                        <label className='form__form-action__checkbox-label' htmlFor="memo-pass">Запомнить меня</label>
+                    <div className="form__form-action">                      
+                        <FormControlLabel  control={<Checkbox default
+                                            sx={{
+                                            '&.Mui-checked': {
+                                                color: '#F0C988',
+                                            },
+                                            }}/>} 
+                                label="Запомнить меня"/>                        
                         <div className="form__form-action__restore-pass">Забыли пароль?</div>
                     </div>
-
-                    <button className='form__form-button'>Войти в личный кабинет</button>
+                    <CastomButton/>
                     <div className="form__form-link-create-account">Еще не зарегистрированы? <span>Создайте аккаунт </span></div>    
 
                 </form> 

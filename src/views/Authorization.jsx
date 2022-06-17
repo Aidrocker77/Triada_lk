@@ -4,10 +4,6 @@ import '../styles/Authorization.scss';
 
 
 function Authorization () {
-
-    // TODO--добавить иконку стрелки на authorization__form-wrapper__link
-    // беграунд чекбокса поменять на желтый 
-    // сверить отступы когда подключится шрифт
     
     return(
         <div className="authorization">
@@ -16,7 +12,6 @@ function Authorization () {
                     <FormAuthorization/>           
                 <div className="authorization__form-wrapper__footer-rights">© 1991-2022 Группа Компаний Триада. Все права защищены.</div>
             </div>
-
             <div className="authorization__logo-wrapper md-hidden">
                  <div className="authorization__logo-wrapper__logo" />
                  <div className="authorization__logo-wrapper__nav">
