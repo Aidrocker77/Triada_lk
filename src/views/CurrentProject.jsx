@@ -1,4 +1,4 @@
-import '../styles/CurrentProject.scss';
+import '../styles/CurrentBaseKnowledge.scss';
 import LinearProgress from '@mui/material/LinearProgress';
 
 
@@ -60,7 +60,11 @@ const MyProjects = (props) => {
                 </div>
                 <div className="current-project__main__resume__data">
                     <div className="current-project__main__resume__data-block">
-                        <div className="current-project__main__resume__data-block__icon"></div>
+                        <div className="current-project__main__resume__data-block__icon">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 2.25H14.25V1.5C14.25 1.0875 13.9125 0.75 13.5 0.75C13.0875 0.75 12.75 1.0875 12.75 1.5V2.25H5.25V1.5C5.25 1.0875 4.9125 0.75 4.5 0.75C4.0875 0.75 3.75 1.0875 3.75 1.5V2.25H3C2.175 2.25 1.5 2.925 1.5 3.75V15.75C1.5 16.575 2.175 17.25 3 17.25H15C15.825 17.25 16.5 16.575 16.5 15.75V3.75C16.5 2.925 15.825 2.25 15 2.25ZM14.25 15.75H3.75C3.3375 15.75 3 15.4125 3 15V6H15V15C15 15.4125 14.6625 15.75 14.25 15.75Z" fill="#A3AED0"/>
+                            </svg>
+                        </div>
                             Дата завершения
                     </div>
 
@@ -84,24 +88,32 @@ const MyProjects = (props) => {
                         <div className="current-project__main__road-map__table__main__block">
                             <div className="current-project__main__road-map__table__main__column">Сбор документов</div>
                             <div className="current-project__main__road-map__table__main__column">
-                                <div className="icon"/>
+                                <div className="icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM9.29 16.29L5.7 12.7C5.31 12.31 5.31 11.68 5.7 11.29C6.09 10.9 6.72 10.9 7.11 11.29L10 14.17L16.88 7.29C17.27 6.9 17.9 6.9 18.29 7.29C18.68 7.68 18.68 8.31 18.29 8.7L10.7 16.29C10.32 16.68 9.68 16.68 9.29 16.29Z" fill="#86D620"/>
+                                    </svg>
+                                </div>
                                 Готово
                             </div>
                             <div className="current-project__main__road-map__table__main__column">5 май 2022</div>
-                            <div className="current-project__main__road-map__table__main__column">
-                                <LinearProgress variant="determinate" value={12} />
+                            <div className="current-project__main__road-map__table__main__column progress">
+                                <LinearProgress variant="determinate" value={100} />
                             </div>
                         </div>
 
                         <div className="current-project__main__road-map__table__main__block">
                             <div className="current-project__main__road-map__table__main__column">Сбор документов</div>
                             <div className="current-project__main__road-map__table__main__column">
-                                <div className="icon"/>
-                                Готово
+                                <div className="icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="#F0C988"/>
+                                    </svg>
+                                </div>
+                                В процессе
                             </div>
                             <div className="current-project__main__road-map__table__main__column">5 май 2022</div>
-                            <div className="current-project__main__road-map__table__main__column">
-                                <LinearProgress variant="determinate" value={12} />
+                            <div className="current-project__main__road-map__table__main__column progress">
+                                <LinearProgress variant="determinate" value={50} />
                             </div>
                         </div>
 
@@ -109,12 +121,16 @@ const MyProjects = (props) => {
                         <div className="current-project__main__road-map__table__main__block">
                             <div className="current-project__main__road-map__table__main__column">Сбор документов</div>
                             <div className="current-project__main__road-map__table__main__column">
-                                <div className="icon"/>
-                                Готово
+                                <div className="icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM16.3 16.3C15.91 16.69 15.28 16.69 14.89 16.3L12 13.41L9.11 16.3C8.72 16.69 8.09 16.69 7.7 16.3C7.31 15.91 7.31 15.28 7.7 14.89L10.59 12L7.7 9.11C7.31 8.72 7.31 8.09 7.7 7.7C8.09 7.31 8.72 7.31 9.11 7.7L12 10.59L14.89 7.7C15.28 7.31 15.91 7.31 16.3 7.7C16.69 8.09 16.69 8.72 16.3 9.11L13.41 12L16.3 14.89C16.68 15.27 16.68 15.91 16.3 16.3Z" fill="#EE5D50"/>
+                                    </svg>
+                                </div>
+                                Не начато
                             </div>
                             <div className="current-project__main__road-map__table__main__column">5 май 2022</div>
-                            <div className="current-project__main__road-map__table__main__column">
-                                <LinearProgress variant="determinate" value={12} />
+                            <div className="current-project__main__road-map__table__main__column progress">
+                                <LinearProgress variant="determinate" value={0} />
                             </div>
                         </div>
                         
@@ -248,6 +264,25 @@ const MyProjects = (props) => {
 
 
             <div className="current-project__main__questions">
+                <div className="current-project__main__questions__photos">
+                    <div className="item-photo first"/>
+                    <div className="item-photo second"/>
+                    <div className="item-photo number">
+                        20+
+                    </div>
+                </div>
+                <div className="current-project__main__questions__text">
+                    <div className="title">Возник вопрос?</div>
+                    <div className="description">
+                        Получите быстрый ответ от наших экспертов
+                    </div>
+                </div>
+                <div className="current-project__main__questions__action">
+                    <div className="button-send-question">
+                        Задать вопрос
+                    </div>
+                </div>
+
 
             </div>
         </div>

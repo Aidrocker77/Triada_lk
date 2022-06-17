@@ -2,7 +2,7 @@
 .authorization{
     box-sizing: border-box;
     width: 100%;
-    max-width: 1510px;
+    // max-width: 1510px;
     height: 100vh;
 
     margin: 0 auto;
@@ -41,7 +41,7 @@
                 margin-left: 18px;
                 &::before{
                     display: block;
-                    content:url('./arrov__back.svg');
+                    content:url('../components/icons/arrov__back.svg');
                     position: absolute;
                     left: -18px;
                     bottom: -1px;
@@ -73,7 +73,7 @@
             ". . ."
             ". b ."
             ". c . ";
-        background: url('./bg__auth.png') no-repeat;
+        background: url('../assets/img/bg__auth.png') no-repeat;
         background-size: 100% 100%;
         padding: 25px 0; 
         border-radius: 0px 0px 0px 157.396px;   
@@ -90,7 +90,7 @@
             width: 300px;
             height: 350px;
             grid-area: b;
-            background: url('./big__logo.svg') no-repeat;
+            background: url('../components/icons/big__logo.svg') no-repeat;
         }    
         &__nav{
             grid-area: c;
