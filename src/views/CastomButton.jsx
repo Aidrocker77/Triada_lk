@@ -1,8 +1,8 @@
 import '../styles/CastomButton.scss';
 
-const CastomButton=()=>{
+const CastomButton=(props)=>{
     return(
-        <button className='castom-button'>Войти в личный кабинет</button>
+        <button className={'castom-button '+(props.modifier)} >{props.content}</button>
     )
 }
 
