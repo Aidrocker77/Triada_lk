@@ -28,7 +28,7 @@
             width: 100%;
             height: 84px;
 
-            background: url('./logo.svg') no-repeat;
+            background: url('../components/icons/logo.svg') no-repeat;
             background-size: contain;
         }
 
@@ -102,6 +102,117 @@
         padding: 49px 20px 25px 30px;
 
         background: #F8FAFF;
+
+        &__questions {
+            display: grid;
+            grid-auto-flow: column;
+            grid-template-columns: max-content max-content;
+            align-items: center;
+
+            padding: 20px;
+
+            background: #FFFFFF;
+            border-radius: 10px;
+
+            &__photos {
+                display: flex;
+                align-items: center;
+
+                position: relative;
+
+                .item-photo {
+                    width: 60px;
+                    height: 60px;
+                    border: 5px solid #FFFFFF;
+                    border-radius: 50%;
+                    position: relative;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    background: #F4F7FE;
+
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 22px;
+                    line-height: 32px;
+
+                    text-align: center;
+
+                    color: #A3AED0;
+
+                    &.first {
+                        background: url('../assets/img/photo-1.png') no-repeat;
+                        background-size: cover;
+                    }
+
+                    &.second {
+                        background: url('../assets/img/photo-2.png') no-repeat;
+                        background-size: cover;
+                        left: -20px;
+                    }
+
+                    &.number {
+                        left: -40px;
+                    }
+
+                    
+                }
+            }
+
+            &__text {
+                display: grid;
+                grid-auto-flow: row;
+                gap: 2px;
+                grid-template-rows: max-content max-content;
+
+                .title {
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 22px;
+                    line-height: 32px;
+
+
+                    color: #254289;
+                }
+
+                .description {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 24px;
+
+                    color: #A3AED0;
+                }
+            }
+
+            &__action {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                margin-left: auto;
+
+                .button-send-question {
+                    padding: 11px;
+
+                    background: #F0C988;
+                    border-radius: 5px;
+
+
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 24px;
+
+                    text-align: center;
+
+                    color: #2B2B2B;
+
+                }
+            }
+        }
 
         &__title {
             font-style: normal;
@@ -244,6 +355,7 @@
                             color: #A3AED0;
 
                             margin-right: 10px;
+
                         }
                     }
                 }
@@ -398,6 +510,8 @@
                 &-block {
                     display: grid;
                     grid-auto-flow: column;
+                    gap: 7px;
+
                     background: #F4F7FE;
                     border-radius: 7px;
                     padding: 10px;
@@ -408,6 +522,12 @@
                     color: #A3AED0;
 
                     margin-right: 15px;
+
+                    &__icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
                 }
             }
         }
@@ -445,6 +565,7 @@
                     grid-template-columns: repeat(4, 1fr);
 
                     &__column {
+
                         font-style: normal;
                         font-weight: 400;
                         font-size: 14px;
@@ -468,11 +589,20 @@
 
 
                     &__column {
+                        display: grid;
+                        grid-auto-flow: column;
+                        gap: 5px;
+                        grid-template-columns: max-content;
+
                         font-style: normal;
                         font-weight: 400;
                         font-size: 14px;
                         line-height: 24px;
                         color: #254289;
+
+                        &.progress {
+                            grid-template-columns: 1fr;
+                        }
 
                         .css-eglki6-MuiLinearProgress-root {
                             height: 10px;
