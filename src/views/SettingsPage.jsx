@@ -122,7 +122,26 @@ const SettingsPage=()=>{
     
             </div>
                 
-            <div className="current-project__main__questions"/>
+            <div className="settings__main__questions">
+                <div className="current-project__main__questions__photos">
+                    <div className="item-photo first"/>
+                    <div className="item-photo second"/>
+                    <div className="item-photo number">
+                        20+
+                    </div>
+                </div>
+                <div className="current-project__main__questions__text">
+                    <div className="title">Возник вопрос?</div>
+                    <div className="description">
+                        Получите быстрый ответ от наших экспертов
+                    </div>
+                </div>
+                <div className="current-project__main__questions__action">
+                    <div className="button-send-question">
+                        Задать вопрос
+                    </div>
+                </div>
+            </div>
 
             <div className="settings__main__footer">
                 <div className="settings__main__footer__year">
