@@ -102,7 +102,7 @@ const SettingsPage=()=>{
     
                 <form action="#" className="settings__main__project">
                     <div className="settings__main__project-header">
-                            <div className="settings__main__project-header__title">Изменить пароль</div>
+                            <div className="settings__main__project-header__title">Изменить email</div>
                     </div>
     
     

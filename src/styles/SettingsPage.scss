@@ -404,7 +404,6 @@
 
                 &-text {
                     cursor: pointer;
-
                     font-style: normal;
                     font-weight: 400;
                     font-size: 14px;
@@ -417,5 +416,8 @@
     }
     .active-buttoon{
         background: #A3AED0;
+    }
+    .w-140{
+        width: 140
     }
 }
