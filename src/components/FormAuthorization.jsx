@@ -1,4 +1,4 @@
-import CastomButton from './CastomButton';
+import CustomButton from './CustomButton';
 import {Checkbox, FormControlLabel} from '@mui/material';
 import React from "react";
 
@@ -35,7 +35,7 @@ const FormAuthorization=()=>{
                                 label="Запомнить меня"/>                        
                         <div className="form__form-action__restore-pass">Забыли пароль?</div>
                     </div>
-                    <CastomButton content={'Войти в личный кабинет'}/>
+                    <CustomButton content={'Войти в личный кабинет'}/>
                     <div className="form__form-link-create-account">Еще не зарегистрированы? <span>Создайте аккаунт </span></div>    
 
                 </form> 

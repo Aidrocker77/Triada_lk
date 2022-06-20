@@ -1,14 +1,14 @@
 import FormAuthorization from '../components/FormAuthorization';
 import React from "react";
 import '../styles/Authorization.scss';
-
+import { Link } from 'react-router-dom';
 
 function Authorization () {
     
     return(
         <div className="authorization">
             <div className="authorization__form-wrapper">
-                <div className="authorization__form-wrapper__link">Вернуться на сайт</div>   
+                <Link to={`/MyProjects`} className="authorization__form-wrapper__link">Вернуться на сайт</Link>   
                     <FormAuthorization/>           
                 <div className="authorization__form-wrapper__footer-rights">© 1991-2022 Группа Компаний Триада. Все права защищены.</div>
             </div>

@@ -39,6 +39,7 @@
                 cursor: pointer;
                 color: #A3AED0;
                 margin-left: 18px;
+                text-decoration: none;
                 &::before{
                     display: block;
                     content:url('../components/icons/arrov__back.svg');
