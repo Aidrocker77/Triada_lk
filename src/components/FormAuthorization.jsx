@@ -1,5 +1,6 @@
 import CastomButton from './CastomButton';
 import {Checkbox, FormControlLabel} from '@mui/material';
+import React from "react";
 
 import '../styles/FormAuthorization.scss'
 

@@ -1,5 +1,5 @@
-import FormAuthorization from './FormAuthorization';
-
+import FormAuthorization from '../components/FormAuthorization';
+import React from "react";
 import '../styles/Authorization.scss';
 
 

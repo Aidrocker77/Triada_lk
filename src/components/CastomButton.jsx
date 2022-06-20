@@ -1,4 +1,5 @@
 import '../styles/CastomButton.scss';
+import React from "react";
 
 const CastomButton=(props)=>{
     return(

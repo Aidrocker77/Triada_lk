@@ -1,44 +1,16 @@
-import '../styles/CurrentProject.scss';
-import LinearProgress from '@mui/material/LinearProgress';
+import React from "react";
 
+import LinearProgress from '@mui/material/LinearProgress';
+import Menu from '../components/Menu';
+import FooterComponent from '../components/Footer';
+
+import '../styles/CurrentProject.scss';
 
 const MyProjects = (props) => {
+
   return (
     <div className="current-base-knowledge">
-      <div className="current-base-knowledge__menu">
-
-      <div className="current-base-knowledge__menu__logo"/>
-
-      <div className="current-base-knowledge__menu__separator"/>
-
-      <div className="current-base-knowledge__menu__link-wrappers">
-
-        <div className="current-base-knowledge__menu__link active">
-            <div className="current-base-knowledge__menu__link-icon"></div>
-            <div className="current-base-knowledge__menu__link-text">Мои проекты</div>
-        </div>
-        <div className="current-base-knowledge__menu__link">
-            <div className="current-base-knowledge__menu__link-icon"></div>
-            <div className="current-base-knowledge__menu__link-text">Консультирование</div>
-        </div>
-        <div className="current-base-knowledge__menu__link">
-            <div className="current-base-knowledge__menu__link-icon"></div>
-            <div className="current-base-knowledge__menu__link-text">База знаний</div>
-        </div>
-        <div className="current-base-knowledge__menu__link">
-            <div className="current-base-knowledge__menu__link-icon"></div>
-            <div className="current-base-knowledge__menu__link-text">Настройки</div>
-        </div>
-
-        <div className="current-base-knowledge__menu__link">
-            <div className="current-base-knowledge__menu__link-icon"></div>
-            <div className="current-base-knowledge__menu__link-text">Выйти</div>
-        </div>
-
-      </div>
-      
-
-      </div>
+      <Menu/>
       <div className="current-base-knowledge__main">
         <div className="current-base-knowledge__main__title">
             База знаний
@@ -71,12 +43,12 @@ const MyProjects = (props) => {
                             <div className="icon">
                                 <svg width="82" height="82" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g filter="url(#filter0_b_1_607)">
-                                        <circle cx="41" cy="41" r="41" fill="white" fill-opacity="0.35"/>
+                                        <circle cx="41" cy="41" r="41" fill="white" fillOpacity="0.35"/>
                                     </g>
                                     <path d="M55.698 41L33.6508 53.7289L33.6508 28.2711L55.698 41Z" fill="white"/>
                                     <defs>
-                                        <filter id="filter0_b_1_607" x="-19" y="-19" width="120" height="120" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                        <filter id="filter0_b_1_607" x="-19" y="-19" width="120" height="120" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                                            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                                             <feGaussianBlur in="BackgroundImage" stdDeviation="9.5"/>
                                             <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_607"/>
                                             <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_607" result="shape"/>
@@ -116,16 +88,7 @@ const MyProjects = (props) => {
         </div>
         
 
-        <div className="current-base-knowledge__main__footer">
-            <div className="current-base-knowledge__main__footer__year">
-                © 1991-2022 Группа Компаний Триада. Все права защищены.
-            </div>
-            <div className="current-base-knowledge__main__footer__about">
-                <div className="current-base-knowledge__main__footer__about-text">О компании</div>
-                <div className="current-base-knowledge__main__footer__about-text">Услуги</div>
-                <div className="current-base-knowledge__main__footer__about-text">Контакты</div>
-            </div>
-        </div>
+        <FooterComponent/>
     </div>
 
  </div>
