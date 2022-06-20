@@ -14,87 +14,6 @@
 
     background: #fff;
 
-    &__menu {
-        display: grid;
-        grid-auto-flow: row;
-
-        grid-template-rows: repeat(3, max-content);
-
-        padding: 27px 34px;
-
-        position: relative;
-
-        &__logo {
-            width: 100%;
-            height: 84px;
-
-            background: url('../components/icons/logo.svg') no-repeat;
-            background-size: contain;
-        }
-
-        &__separator {
-            width: 100%;
-            height: 1px;
-
-            background: #E7ECF7;
-
-            position: absolute;
-
-            top: 130px;
-            left: 0%;
-        }
-
-        &__link-wrappers {
-            display: grid;
-            grid-auto-flow: row;
-
-            margin-top: 41px;
-
-            gap: 26px;
-        }
-
-        &__link {
-            display: grid;
-            grid-auto-flow: column;
-
-            grid-template-columns: repeat(2, max-content);
-
-            cursor: pointer;
-
-            &-text {
-                font-style: normal;
-                font-weight: 500;
-                font-size: 16px;
-                line-height: 30px;
-
-                color: #A3AED0;
-            }
-
-            &.active {
-                position: relative;
-
-                &::after {
-                    content: '';
-                    position: absolute;
-
-                    height: 100%;
-                    width: 4px;
-
-                    background: #F0C988;
-                    border-radius: 25px;
-
-                    top: 0;
-                    right: -34px;
-                }
-                .my-projects__menu__link-text {
-                    color: #254289;
-
-
-                }
-            }
-        }
-    }
-
     &__main {
         display: flex;
         flex-direction: column;
@@ -251,13 +170,14 @@
         &__comments {
             display: grid;
             grid-auto-flow: column;
+            grid-template-columns: 47% 1% 47%;
+            gap: 20px;
+            
+            padding: 23px;
 
-            padding: 21px;
             background: #FFFFFF;
             border-radius: 10px;
-
-            grid-template-columns: 49% 1% 49%;
-            gap: 26px;
+            
 
             &__action-block {
                 display: grid;
@@ -623,42 +543,6 @@
                 background: #E9EDF7;
 
                 margin-top: 6px;
-            }
-        }
-
-        &__footer {
-            margin-top: auto;
-            display: flex;
-            justify-content: space-between;
-
-            &__year {
-                font-style: normal;
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 24px;
-
-                color: #A3AED0;
-            }
-
-
-            &__about {
-                display: grid;
-                grid-auto-flow: column;
-
-                grid-template-columns: repeat(3, max-content);
-
-                gap: 33px;
-
-                &-text {
-                    cursor: pointer;
-
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: 14px;
-                    line-height: 24px;
-                    text-align: center;
-                    color: #A3AED0;
-                }
             }
         }
 
