@@ -1,5 +1,6 @@
 import '../styles/Menu.scss';
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Menu=(props)=>{
     return(
@@ -13,24 +14,24 @@ const Menu=(props)=>{
 
             <div className="menu__link active">
                 <div className="menu__link-icon"/>
-                <div className="menu__link-text">Мои проекты</div>
+                <Link to={`/MyProjects`} className="menu__link-text">Мои проекты</Link>
             </div>
             <div className="menu__link">
                 <div className="menu__link-icon"></div>
-                <div className="menu__link-text">Консультирование</div>
+                <Link to={`/MyProjects`} className="menu__link-text">Консультирование</Link>
             </div>
             <div className="menu__link">
                 <div className="menu__link-icon"></div>
-                <div className="menu__link-text">База знаний</div>
+                <Link to={`/BaseKnowledge`} className="menu__link-text">База знаний</Link>
             </div>
             <div className="menu__link">
                 <div className="menu__link-icon"></div>
-                <div className="menu__link-text">Настройки</div>
+                <Link to={`/SettingsPage`} className="menu__link-text">Настройки</Link>
             </div>
 
             <div className="menu__link">
                 <div className="menu__link-icon"></div>
-                <div className="menu__link-text">Выйти</div>
+                <Link to={`/`} className="menu__link-text">Выйти</Link>
             </div>
 
         </div>

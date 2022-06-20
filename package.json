@@ -27,6 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "react-app": "react-scripts start",    
     "start": "node server.js",
     "watch": "parcel watch ./public/index.html"
   },
