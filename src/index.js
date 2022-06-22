@@ -5,9 +5,10 @@ import configureStore from './store/index.js';
 import './styles/index.scss';
 import App from './views/App';
 
+const rootElement = document.getElementById("root");
 ReactDOM.render(
- <Provider store={configureStore()}>
-  <App />
- </Provider>,
- document.getElementById('root')
+    <Provider store={configureStore()}>
+        <App />
+    </Provider>,
+    rootElement
 );

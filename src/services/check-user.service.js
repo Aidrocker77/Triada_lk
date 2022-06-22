@@ -1,7 +1,8 @@
 import axios from "axios";
+import { BX24 } from "bx24";
 
 function checkUserService(email=null) {
-  const url = `https://ntc-triada.bitrix24.ru/rest/179/r8ke4ndb9peovp1h/user.search.json`;
+  const url = `https://ntc-triada.bitrix24.ru/rest/179/r8ke4ndb9peovp1h`;
 
   const currentUserPromise = new Promise((resolve, reject) => {
     axios({
