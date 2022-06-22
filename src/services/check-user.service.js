@@ -1,12 +1,15 @@
 import axios from "axios";
 
-function getCurrentUser() {
-  const url = `https://ntc-triada.bitrix24.ru/rest/179/sebwlbn35xf0fb0r/user.get.json`;
+function checkUserService(email=null) {
+  const url = `https://ntc-triada.bitrix24.ru/rest/179/r8ke4ndb9peovp1h/user.search.json`;
 
   const currentUserPromise = new Promise((resolve, reject) => {
     axios({
       method: "get",
-      url
+      url,
+      params:{
+        email
+      }
     }).then(response => {
       resolve(response.data.result);
     });
@@ -14,5 +17,4 @@ function getCurrentUser() {
   return currentUserPromise;
 
 }
-
-export default getCurrentUser;
+export default checkUserService;
