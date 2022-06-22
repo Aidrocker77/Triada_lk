@@ -1,4 +1,4 @@
-import FormAuthorization from '../components/FormAuthorization.js';
+import FormAuthorization from '../components/FormAuthorization';
 import React from "react";
 import '../styles/Authorization.scss';
 import { Link } from 'react-router-dom';
