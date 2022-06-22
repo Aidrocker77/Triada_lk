@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Menu from '../components/Menu';
 import FooterComponent from '../components/Footer';
 import { Link } from 'react-router-dom';
@@ -6,25 +6,39 @@ import { Link } from 'react-router-dom';
 import CurrentIcon from '../components/icons/CurrentIcon';
 import FinishedProjectIcon from '../components/icons/FinishedProjectIcon';
 import BonusProkectIcon from '../components/icons/BonusProjectIcon';
+import getDealListService from '../services/get-deal.list.service';
 
 import '../styles/MyProjects.scss';
 
+
 function MyProjects() {
+    const [dealList ,setDealList]=useState([]);
+
+    const getDealList= () => {
+        getDealListService()
+        .then((res) => {
+            setDealList(res);
+        })
+        .catch((e) => {
+            console.log(e);
+        })
+    };
+
+    useEffect(()=>{
+        getDealList();
+    },[]);
+
+    // useEffect(()=>{
+    //     console.log('update list');
+    //     console.log(dealList);
+    // },[dealList]);
+
     const texts = {
         title: ' Мои проекты',
         name: ' Мои проекты',
-        currentProjects: [
-            {id: 1, text: 'Разработка санитарно-защитной зоны'},
-            {id: 2, text: 'Регистрация ОПО'},
-            {id: 3, text: 'Разработка проекта ПДВ'},
-        ],
-        finishedProjects: [
-            {id: 1, text: 'Разработка проекта НДС'},
-        ],
-        bonusProjects: [
-            {id: 1, text: 'Экологическое сопровождение '},
-            {id: 2, text: 'Бесплатные консультации'},
-        ]
+        currentProjects: dealList,
+        finishedProjects: dealList,
+        bonusProjects: dealList
     };
 
     return (
@@ -57,8 +71,8 @@ function MyProjects() {
                     <div className="my-projects__main__project-list">
                         {texts.currentProjects.map(el => {
                             return (
-                                <div className="my-projects__main__project-link" key={el.id}>
-                                    <Link to={`/MyProjects/CurrentProject`} className="menu__link-text">{el.text}</Link>
+                                <div className="my-projects__main__project-link" key={el.ID}>
+                                    <Link to={`/MyProjects/CurrentProject`} className="menu__link-text">{el.TITLE}</Link>
                                 </div>            
                             )
                         })}
@@ -72,7 +86,7 @@ function MyProjects() {
                         </div>
                         
                         <div className="my-projects__main__project-header__text">
-                        <div className="my-projects__main__project-header__title">Текущие</div>
+                        <div className="my-projects__main__project-header__title">Завершенные</div>
                             <div className="my-projects__main__project-header__description">Работаем не покладая рук</div>
                         </div>
                     </div>
@@ -82,8 +96,8 @@ function MyProjects() {
                     <div className="my-projects__main__project-list">
                         {texts.finishedProjects.map(el => {
                             return (
-                                <div className="my-projects__main__project-link" key={el.id}>
-                                    <Link to={`/MyProjects/CurrentProject`} className="menu__link-text">{el.text}</Link>
+                                <div className="my-projects__main__project-link" key={el.ID}>
+                                    <Link to={`/MyProjects/CurrentProject`} className="menu__link-text">{el.TITLE}</Link>
                                 </div>            
                             )
                         })}
@@ -106,8 +120,8 @@ function MyProjects() {
                     <div className="my-projects__main__project-list">
                         {texts.bonusProjects.map(el => {
                                 return (
-                                    <div className="my-projects__main__project-link" key={el.id}>
-                                        <Link to={`/MyProjects/CurrentProject`} className="menu__link-text">{el.text}</Link>
+                                    <div className="my-projects__main__project-link" key={el.ID}>
+                                        <Link to={`/MyProjects/CurrentProject`} className="menu__link-text">{el.TITLE}</Link>
                                     </div>            
                                 )
                             })}
