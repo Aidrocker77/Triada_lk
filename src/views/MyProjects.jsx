@@ -1,6 +1,7 @@
 import React from "react";
 import Menu from '../components/Menu';
 import FooterComponent from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 import CurrentIcon from '../components/icons/CurrentIcon';
 import FinishedProjectIcon from '../components/icons/FinishedProjectIcon';
@@ -57,7 +58,7 @@ function MyProjects() {
                         {texts.currentProjects.map(el => {
                             return (
                                 <div className="my-projects__main__project-link" key={el.id}>
-                                    {el.text}
+                                    <Link to={`/MyProjects/CurrentProject`} className="menu__link-text">{el.text}</Link>
                                 </div>            
                             )
                         })}
@@ -71,20 +72,21 @@ function MyProjects() {
                         </div>
                         
                         <div className="my-projects__main__project-header__text">
-                            {texts.finishedProjects.map(el => {
-                                return (
-                                    <div className="my-projects__main__project-link" key={el.id}>
-                                        {el.text}
-                                    </div>            
-                                )
-                            })}
+                        <div className="my-projects__main__project-header__title">Текущие</div>
+                            <div className="my-projects__main__project-header__description">Работаем не покладая рук</div>
                         </div>
                     </div>
 
                     <div className="my-projects__main__project__separator"/>
 
                     <div className="my-projects__main__project-list">
-                        <div className="my-projects__main__project-link">Разработка проекта НДС</div>
+                        {texts.finishedProjects.map(el => {
+                            return (
+                                <div className="my-projects__main__project-link" key={el.id}>
+                                    <Link to={`/MyProjects/CurrentProject`} className="menu__link-text">{el.text}</Link>
+                                </div>            
+                            )
+                        })}
                     </div>
                 </div>
 
@@ -105,7 +107,7 @@ function MyProjects() {
                         {texts.bonusProjects.map(el => {
                                 return (
                                     <div className="my-projects__main__project-link" key={el.id}>
-                                        {el.text}
+                                        <Link to={`/MyProjects/CurrentProject`} className="menu__link-text">{el.text}</Link>
                                     </div>            
                                 )
                             })}

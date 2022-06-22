@@ -2,8 +2,11 @@ import '../styles/CustomButton.scss';
 import React from "react";
 
 const CustomButton=(props)=>{
+    const handleClick = () => {
+        props.click();
+    }
     return(
-        <button className={'custom-button '+(props.modifier)} >{props.content}</button>
+        <button className={'custom-button '+(props.modifier)} onClick={handleClick} >{props.content}</button>
     )
 }
 

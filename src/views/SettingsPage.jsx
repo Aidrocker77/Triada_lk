@@ -7,11 +7,6 @@ import '../styles/SettingsPage.scss';
 
 const SettingsPage=()=>{
 
-    const [user_data, setDate] = useState({})
-    useEffect(() => {
-        console.log(getCurrentUser())
-    },[])
-
     return (
         <div className="settings">
             <Menu/>
