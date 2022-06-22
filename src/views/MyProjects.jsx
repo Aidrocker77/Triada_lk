@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
+import { Link } from 'react-router-dom';
+
 import Menu from '../components/Menu';
 import FooterComponent from '../components/Footer';
-import { Link } from 'react-router-dom';
 
 import CurrentIcon from '../components/icons/CurrentIcon';
 import FinishedProjectIcon from '../components/icons/FinishedProjectIcon';
@@ -72,7 +73,7 @@ function MyProjects() {
                         {texts.currentProjects.map(el => {
                             return (
                                 <div className="my-projects__main__project-link" key={el.ID}>
-                                    <Link to={`/MyProjects/CurrentProject`} className="menu__link-text">{el.TITLE}</Link>
+                                    <Link to={`/MyProjects/${el.ID}`} className="menu__link-text">{el.TITLE}</Link>
                                 </div>            
                             )
                         })}
@@ -97,7 +98,7 @@ function MyProjects() {
                         {texts.finishedProjects.map(el => {
                             return (
                                 <div className="my-projects__main__project-link" key={el.ID}>
-                                    <Link to={`/MyProjects/CurrentProject`} className="menu__link-text">{el.TITLE}</Link>
+                                    <Link to={`/MyProjects/${el.ID}`} className="menu__link-text">{el.TITLE}</Link>
                                 </div>            
                             )
                         })}
@@ -121,7 +122,7 @@ function MyProjects() {
                         {texts.bonusProjects.map(el => {
                                 return (
                                     <div className="my-projects__main__project-link" key={el.ID}>
-                                        <Link to={`/MyProjects/CurrentProject`} className="menu__link-text">{el.TITLE}</Link>
+                                        <Link to={`/MyProjects/${el.ID}`} className="menu__link-text">{el.TITLE}</Link>
                                     </div>            
                                 )
                             })}
