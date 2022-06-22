@@ -1,7 +1,10 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import LinearProgress from '@mui/material/LinearProgress';
+import {useParams} from 'react-router-dom';
+
 import Menu from '../components/Menu';
 import FooterComponent from '../components/Footer';
+import getDealService from '../services/get-deal.service';
 
 import CloseIcon from '../components/icons/CloseIcon';
 import StatusFinishedIcon from '../components/icons/StatusFinishedIcon';
@@ -12,6 +15,30 @@ import DownLoadIcon from '../components/icons/DownLoadIcon';
 import '../styles/CurrentBaseKnowledge.scss';
 
 const MyProjects = (props) => {
+
+    const {dealId} =useParams();
+    const [deal ,setDeal]=useState([]);
+
+    const getDeal= () => {
+        getDealService(dealId)
+        .then((res) => {
+            setDeal(res);
+        })
+        .catch((e) => {
+            console.log(e);
+        })
+    };
+
+    useEffect(()=>{
+        getDeal();
+    },[dealId]);
+
+    useEffect(()=>{
+        console.log('update ');
+        console.log(deal);
+    },[deal]);
+
+
   return (
     <div className="current-project">
         <Menu/>
@@ -21,7 +48,7 @@ const MyProjects = (props) => {
         </div>
         <div className="current-project__main__header">
             <div className="current-project__main__header--title">
-                Регистрация ОПО №1938-МФ
+                {deal.TITLE}
             </div>
         </div>
 

@@ -22,7 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Authorization />} />
             <Route path="/MyProjects" element={<MyProjects />} />
-            <Route path="MyProjects/CurrentProject" element={<CurrentProject />} />
+            <Route path="MyProjects/:dealId" element={<CurrentProject />} />
             <Route path="/BaseKnowledge" element={<BaseKnowledge />} />
             <Route path="/SettingsPage" element={<SettingsPage />} />
             <Route path="BaseKnowledge/CurrentBaseKnowledge" element={<CurrentBaseKnowledge />} />
