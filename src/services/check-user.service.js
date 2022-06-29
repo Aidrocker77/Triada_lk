@@ -1,19 +1,25 @@
 import axios from "axios";
 import { BX24 } from "bx24";
 
-function checkUserService(email=null) {
-  const url = `https://ntc-triada.bitrix24.ru/rest/179/r8ke4ndb9peovp1h`;
+function checkUserService(email,  password) {
+  const url = `http://45.141.102.182:3000/companies/auth`;
 
   const currentUserPromise = new Promise((resolve, reject) => {
     axios({
-      method: "get",
+      method: "POST",
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
       url,
-      params:{
-        email
+      data:{
+        email,
+        password,
       }
     }).then(response => {
-      resolve(response.data.result);
-    });
+      resolve(response.data);
+    })
+    .catch(e => reject(e))
   });
   return currentUserPromise;
 
