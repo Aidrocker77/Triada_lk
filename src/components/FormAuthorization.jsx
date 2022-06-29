@@ -10,26 +10,37 @@ import '../styles/FormAuthorization.scss'
 
 const FormAuthorization = (props) => {
     const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     let navigate = useNavigate();
     
 
     const checkUser = () => {
-        checkUserService(email)
+        if(!email || !password) {
+            return;
+        }
+        checkUserService(email, password)
         .then((res) => {
-            if(res.length !== 0) {
-                 navigate('/MyProjects')
+            if(res) {
+                navigate('/MyProjects');
+                setEmailTarget('');
+                setPasswordTarget('');
             }
         })
         .catch((e) => {
-            console.log(e);
+            setEmailTarget('');
+            setPasswordTarget('');
         })
     };
 
 
-    const setEmailTarget = (e) => {
-        setEmail(e.target.value);
-        console.log(email)
-    }
+    const setEmailTarget = (value) => {
+        setEmail(value);
+    };
+
+    const setPasswordTarget = (value) => {
+        setPassword(value);
+    };
+
     return(
         <form action='#' className="authorization__form-wrapper__form form">
             <div className="form__form-title">Вход в личный кабинет</div>
@@ -40,7 +51,7 @@ const FormAuthorization = (props) => {
                     value={email}
                     id='email'
                     placeholder="Ваша почта" 
-                    onChange={(e) => setEmailTarget(e)}
+                    onChange={(e) => setEmailTarget(e.target.value)}
                     className="form__form-input"/>
 
             <label className='form__form-label' htmlFor="password">Пароль<span>*</span></label>
@@ -51,10 +62,12 @@ const FormAuthorization = (props) => {
             </div>  
             <input type="text" 
                     id='password'
-                    placeholder="Ваш пароль" 
+                    value={password}
+                    placeholder="Ваш пароль"
+                    onChange={(e) => setPasswordTarget(e.target.value)}
                     className="form__form-input" />                  
 
-            <div className="form__form-action">                      
+            {/* <div className="form__form-action">                      
                 <FormControlLabel  control={<Checkbox default
                                     sx={{
                                     '&.Mui-checked': {
@@ -63,7 +76,7 @@ const FormAuthorization = (props) => {
                                     }}/>} 
                         label="Запомнить меня"/>                        
                 <div className="form__form-action__restore-pass">Забыли пароль?</div>
-            </div>
+            </div> */}
             <CustomButton content={'Войти в личный кабинет'}  click={checkUser} />  
         </form> 
     )
