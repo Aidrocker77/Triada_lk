@@ -58,6 +58,19 @@ const MyProjects = (props) => {
     const TITLE =deal.TITLE;
     const RESUME =deal.UF_CRM_1656522246714?deal.UF_CRM_1656522246714:'Описание результата отсутствует ';
     const CLOSEDATE =deal.UF_CRM_1631884740441?deal.UF_CRM_1631884740441.substring(0, 10): null;   
+    
+    let PROJECT_TITLE; 
+    if(deal.STAGE_ID === 'C61:FINAL_INVOICE' || deal.STAGE_ID === "C75:PREPAYMENT_INVOIC"){
+        PROJECT_TITLE= 'Текущие проекты'
+    }
+    if(deal.STAGE_ID === 'C61:FINAL_INVOICE' || deal.STAGE_ID === "C75:PREPAYMENT_INVOIC"){
+        PROJECT_TITLE= 'Текущие проекты'
+    }
+    if(deal.STAGE_ID == 'C61:WON' || deal.STAGE_ID == 'C75:WON'){
+        PROJECT_TITLE= 'Завершенные'
+    }
+    
+
 
     const getDeal= () => {
         getDealService(dealId)
@@ -74,11 +87,13 @@ const MyProjects = (props) => {
     },[dealId]);
 
     useEffect(()=>{
-        console.log('update ');
         // if(CLOSEDATE!=null){
         //     console.log(DateValidate(CLOSEDATE));
-        // }        
-        console.log(deal);
+        // }  
+        if(PROJECT_TITLE!=null){
+            console.log(PROJECT_TITLE);
+        }      
+        // console.log(PROJECT_TITLE);
     },[deal]);
 
 
@@ -87,7 +102,7 @@ const MyProjects = (props) => {
         <Menu/>
         <div className="current-project__main">
         <div className="current-project__main__title">
-            Мои проекты / Текущие проекты 
+            Мои проекты / {PROJECT_TITLE?PROJECT_TITLE:null} 
         </div>
         <div className="current-project__main__header">
             <div className="current-project__main__header--title">

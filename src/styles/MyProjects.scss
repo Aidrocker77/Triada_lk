@@ -59,7 +59,7 @@
             padding: 20px;
             display: grid;
             grid-auto-flow: row;
-            grid-template-rows: 55px 1vh 1fr;
+            grid-template-rows: 55px 1vh auto;
             
             background: #FFFFFF;
             border: 1px solid #E9EDF7;
@@ -122,11 +122,9 @@
 
             &-list {
                 margin-top: 20px;
-
-                display: grid;
-                grid-auto-flow: row;
-
-                gap: 12px;
+                .menu__link-text{
+                    line-height: 28px;
+                }
             }
 
             &-link {
