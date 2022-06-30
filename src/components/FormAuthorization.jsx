@@ -9,16 +9,19 @@ import checkUserService from '../services/check-user.service'
 import '../styles/FormAuthorization.scss'
 
 const FormAuthorization = (props) => {
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState('');    
+    const [pass, setPass] = useState('');
     let navigate = useNavigate();
     
 
     const checkUser = () => {
-        checkUserService(email)
+        checkUserService(email,pass)
         .then((res) => {
-            if(res.length !== 0) {
-                 navigate('/MyProjects')
-            }
+            console.log(res);
+            // if(res.length !== 0) {
+            //     console.log('resolve!')
+            //      navigate('/MyProjects')
+            // }
         })
         .catch((e) => {
             console.log(e);
@@ -30,6 +33,12 @@ const FormAuthorization = (props) => {
         setEmail(e.target.value);
         console.log(email)
     }
+
+    const setPassTarget = (e) => {
+        setPass(e.target.value);
+        console.log(pass)
+    }
+
     return(
         <form action='#' className="authorization__form-wrapper__form form">
             <div className="form__form-title">Вход в личный кабинет</div>
@@ -52,6 +61,7 @@ const FormAuthorization = (props) => {
             <input type="text" 
                     id='password'
                     placeholder="Ваш пароль" 
+                    onChange={(e) => setPassTarget(e)}
                     className="form__form-input" />                  
 
             <div className="form__form-action">                      

@@ -14,6 +14,19 @@ import '../styles/MyProjects.scss';
 
 function MyProjects() {
     const [dealList ,setDealList]=useState([]);
+    
+    //Filters
+    const currentDeals =dealList? dealList.filter(deal => {
+        if(deal.STAGE_ID == 'C61:FINAL_INVOICE' || deal.STAGE_ID == "C75:PREPAYMENT_INVOIC"){
+            return deal
+        }        
+    }):null;
+    const completedDeals = dealList?dealList.filter(deal => {
+        if(deal.STAGE_ID == 'C61:WON' || deal.STAGE_ID == 'C75:WON'){
+            return deal
+        }        
+    }):null;
+
 
     const getDealList= () => {
         getDealListService()
@@ -29,16 +42,19 @@ function MyProjects() {
         getDealList();
     },[]);
 
+    // Тестовая функция ,для разработки
     // useEffect(()=>{
-    //     console.log('update list');
-    //     console.log(dealList);
+    //     const map =texts.currentProjects.map(el => {
+    //         return el
+    //     })
+    //     console.log(map);        
     // },[dealList]);
 
     const texts = {
         title: ' Мои проекты',
         name: ' Мои проекты',
-        currentProjects: dealList,
-        finishedProjects: dealList,
+        currentProjects: currentDeals,
+        finishedProjects: completedDeals,
         bonusProjects: dealList
     };
 
