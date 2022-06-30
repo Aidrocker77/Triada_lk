@@ -19,6 +19,11 @@ const MyProjects = (props) => {
     const {dealId} =useParams();
     const [deal ,setDeal]=useState([]);
 
+    // Viev
+    const TITLE =deal.TITLE;
+    const RESUME =deal.UF_CRM_1656522246714;
+    const CLOSEDATE =deal.UF_CRM_1631884740441?deal.UF_CRM_1631884740441.substring(0, 10): null;
+
     const getDeal= () => {
         getDealService(dealId)
         .then((res) => {
@@ -48,7 +53,7 @@ const MyProjects = (props) => {
         </div>
         <div className="current-project__main__header">
             <div className="current-project__main__header--title">
-                {deal.TITLE}
+                {TITLE}
             </div>
         </div>
 
@@ -58,8 +63,7 @@ const MyProjects = (props) => {
                     Резюме
                 </div>
                 <div className="current-project__main__resume__text">
-                    Регистрация опасного производственного объекта — это  процесс идентификации производственного объекта по признакам опасности; присвоения ему
-                    I, II, III или IV класса опасности.
+                    {RESUME}
                 </div>
                 <div className="current-project__main__resume__data">
                     <div className="current-project__main__resume__data-block">
@@ -70,8 +74,7 @@ const MyProjects = (props) => {
                         </div>
                             Дата завершения
                     </div>
-
-                    8 июля 2022 г.
+                    {CLOSEDATE}
                 </div>
             </div>
 
