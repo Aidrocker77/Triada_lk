@@ -1,0 +1,207 @@
+.base-knowledge {
+    width: 100%;
+    height: 100vh;
+
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-auto-flow: column;
+
+    position: relative;
+
+    grid-template-columns: 1fr 5fr;
+
+    background: #fff;
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+
+        padding: 49px 20px 25px 30px;
+
+        background: #F8FAFF;
+
+        &__title {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            color: #707EAE;
+        }
+
+        &__header {
+            display: flex;
+            justify-content:  space-between;
+            align-items: center;
+
+            &--title {
+                font-style: normal;
+                font-weight: 700;
+                font-size: 34px;
+                line-height: 42px;
+
+                color: #2B2B2B;
+            }
+
+        }
+
+        &__wrapper {
+            display: grid;
+            grid-auto-flow: column;
+
+            gap: 20px;
+
+            margin-top: 30px;
+
+            height: 85%;
+
+            box-sizing: border-box;
+        }
+
+        &__block {
+            background: #FFFFFF;
+            border: 1px solid #E9EDF7;
+            border-radius: 10px;
+
+            padding: 22px;
+
+            &__header {
+                display: grid;
+                grid-auto-flow: column;
+
+                grid-template-columns: max-content;
+
+                align-items: center;
+
+                gap: 15px;
+
+                &__text-wrapper {
+                    display: grid;
+                    grid-auto-flow: row;
+                }
+
+                &__title {
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 22px;
+                    line-height: 32px;
+                    
+                    color: #254289;
+                }
+
+                &__description {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 24px;
+
+                    color: #A3AED0;
+
+                }
+            }
+
+            &__rules-list {
+                display: grid;
+                grid-auto-flow: row;
+
+                margin-top: 17px;
+
+                gap: 12px;
+
+                .item {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 23px;
+                    /* identical to box height, or 145% */
+
+
+                    color: #254289;
+                }
+
+                .item-accordion {
+                    display: flex;
+                    flex-direction:  column;
+
+                    &__text {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 23px;
+
+                        color: #254289;
+                    }
+
+                    &__header {
+                        display: grid;
+                        grid-auto-flow: column;
+                        grid-template-columns: max-content;
+                        gap: 5px;
+
+                        align-items: center;
+                    }
+
+                    &__list {
+                        height: 0px;
+                        overflow: hidden;
+
+                        display: grid;
+                        grid-auto-flow: row;
+
+                        padding-left: 15px;
+
+                        gap: 15px;
+                        margin-top: 10px;
+
+                        &__item {
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 24px;
+
+                            color: #A3AED0;
+                        }
+                    }
+
+
+                    &.active {
+                        .item-accordion__list {
+                            height: max-content;
+                        }
+
+                        .item-accordion__icon {
+
+                            svg {
+                                transform: rotate(180deg);
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+            &__separator {
+                width: 100%;
+                height: 1px;
+
+                background: #E9EDF7;
+
+                margin-top: 21px;
+            }
+
+            &__icon {
+                width: 60px;
+                height: 60px;
+
+                display: flex;
+                align-items: center;
+                justify-content:  center;
+
+                background: #F4F7FE;
+
+                border-radius: 50%;
+            }
+        }
+    }
+}

@@ -2,17 +2,22 @@
 .authorization{
     box-sizing: border-box;
     width: 100%;
+    // max-width: 1510px;
     height: 100vh;
 
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
+    padding: 0 0 0 15px;
 
     display: grid;
     grid-auto-flow: column;
+    gap: 10px;
 
     position: relative;
 
-    grid-template-columns: 1fr 1fr ;   
+    grid-template-columns: 1fr 1fr ; 
+    @media screen and (max-width: 992px){
+        grid-template-columns: 1fr ;
+    }
 
     background: #fff;
     &__form-wrapper{
@@ -25,22 +30,26 @@
             ". b ."
             ". c .";
             &__link{
+                position: relative;
                 grid-area: a;
                 align-self: start;
                 font-weight: 500;
                 font-size: 14px;
                 line-height: 30px;
                 cursor: pointer;
-
                 color: #A3AED0;
+                margin-left: 18px;
+                text-decoration: none;
+                &::before{
+                    display: block;
+                    content:url('../components/icons/arrov__back.svg');
+                    position: absolute;
+                    left: -18px;
+                    bottom: -1px;
+                }
             }
             &__form{
-                display: grid;
-                width: 100%;
                 grid-area: b;
-                align-self: center;
-                align-items: center;
-                justify-self: center;
             }
             &__footer-rights{
                 grid-area: c;
@@ -55,17 +64,29 @@
     &__logo-wrapper{
         display: grid;
         grid-template-columns: 1fr 300px 1fr;
-        grid-template-rows: 20vh 1fr 10vh;
+        grid-template-rows: 10vh 1fr 10vh;
         grid-template-areas:
             ". . ."
             ". b ."
             ". c . ";
-        background: url('./bg__auth.png') no-repeat;
+        background: url('../assets/img/bg__auth.png') no-repeat;
+        background-size: 100% 100%;
         padding: 25px 0; 
         border-radius: 0px 0px 0px 157.396px;   
+        position: relative;
+           @media screen and (max-width: 992px){
+            display: none;
+        }    
+               
         &__logo{
+            position: absolute;
+            top: 50%;
+            margin: 0 auto;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 350px;
             grid-area: b;
-            background: url('./big__logo.svg') no-repeat;
+            background: url('../components/icons/big__logo.svg') no-repeat;
         }    
         &__nav{
             grid-area: c;
@@ -83,94 +104,6 @@
                 color: #FFFFFF;
                 cursor: pointer;
             }
-        }
-    }
-}
-.form{
-    position: relative;
-    &__form-title{
-        font-weight: 700;
-        font-size: 34px;
-        line-height: 56px;
-        color: #2B2B2B;
-    }
-    &__form-prompt{
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 100%;
-        color: #A3AED0;
-        margin-bottom: 52px;
-    }
-    &__form-email{
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 100%;
-        height:  50px;
-        padding-left: 19px;
-        color: #A3AED0;
-        border: 1px solid #E0E5F2;
-        border-radius: 5px;
-        margin-bottom: 24px;
-    }
-    &__form-password{
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 100%;
-        height:  50px;
-        padding-left: 19px;
-        color: #A3AED0;
-        border: 1px solid #E0E5F2;
-        border-radius: 5px;
-        margin-bottom: 24px;
-    }
-    &__form-label{
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 100%;
-        color:#2B2B2B;
-        margin-bottom: 13px;
-        span{
-            color:#F0C988;
-        }
-    }
-    &__form-action{
-        display: grid;
-        grid-template-columns: 1fr 4fr 5fr;
-        align-items: center;
-        margin-bottom: 31px;
-        &__memo-pass{
-            width: 18px;
-            height: 18px;
-            background-color: #F0C988;
-            border-radius: 2px;
-        }
-        &__restore-pass{
-            display: grid;
-            justify-self: end;
-            color:#254289;
-            cursor: pointer;
-        }
-    }
-    &__form-button{
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        height: 54px;
-        color: #FFFFFF;
-        background: #254289;
-        border-radius: 5px;
-        margin-bottom: 25px;
-        cursor: pointer;
-    }
-    &__form-link-create-account{
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 26px;
-        color: #2B2B2B;
-        span{
-            color:#254289;            
-            cursor: pointer;
         }
     }
 }

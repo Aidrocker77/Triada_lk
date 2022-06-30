@@ -1,132 +1,156 @@
+import React, {useState, useEffect} from "react";
+import { Link } from 'react-router-dom';
+
+import Menu from '../components/Menu';
+import FooterComponent from '../components/Footer';
+
+import CurrentIcon from '../components/icons/CurrentIcon';
+import FinishedProjectIcon from '../components/icons/FinishedProjectIcon';
+import BonusProkectIcon from '../components/icons/BonusProjectIcon';
+import getDealListService from '../services/get-deal.list.service';
+
 import '../styles/MyProjects.scss';
 
+
 function MyProjects() {
-  return (
-    <div className="my-projects">
-      <div className="my-projects__menu">
+    const [dealList ,setDealList]=useState([]);
+    
+    //Filters
+    const currentDeals =dealList? dealList.filter(deal => {
+        if(deal.STAGE_ID == 'C61:FINAL_INVOICE' || deal.STAGE_ID == "C75:PREPAYMENT_INVOIC"){
+            return deal
+        }        
+    }):null;
+    const completedDeals = dealList?dealList.filter(deal => {
+        if(deal.STAGE_ID == 'C61:WON' || deal.STAGE_ID == 'C75:WON'){
+            return deal
+        }        
+    }):null;
 
-      <div className="my-projects__menu__logo"/>
 
-      <div className="my-projects__menu__separator"/>
+    const getDealList= () => {
+        getDealListService()
+        .then((res) => {
+            setDealList(res);
+        })
+        .catch((e) => {
+            console.log(e);
+        })
+    };
 
-      <div className="my-projects__menu__link-wrappers">
+    useEffect(()=>{
+        getDealList();
+    },[]);
 
-        <div className="my-projects__menu__link active">
-            <div className="my-projects__menu__link-icon"></div>
-            <div className="my-projects__menu__link-text">Мои проекты</div>
-        </div>
-        <div className="my-projects__menu__link">
-            <div className="my-projects__menu__link-icon"></div>
-            <div className="my-projects__menu__link-text">Консультирование</div>
-        </div>
-        <div className="my-projects__menu__link">
-            <div className="my-projects__menu__link-icon"></div>
-            <div className="my-projects__menu__link-text">База знаний</div>
-        </div>
-        <div className="my-projects__menu__link">
-            <div className="my-projects__menu__link-icon"></div>
-            <div className="my-projects__menu__link-text">Настройки</div>
-        </div>
+    // Тестовая функция ,для разработки
+    // useEffect(()=>{
+    //     const map =texts.currentProjects.map(el => {
+    //         return el
+    //     })
+    //     console.log(map);        
+    // },[dealList]);
 
-        <div className="my-projects__menu__link">
-            <div className="my-projects__menu__link-icon"></div>
-            <div className="my-projects__menu__link-text">Выйти</div>
-        </div>
+    const texts = {
+        title: ' Мои проекты',
+        name: ' Мои проекты',
+        currentProjects: currentDeals,
+        finishedProjects: completedDeals,
+        bonusProjects: dealList
+    };
 
-      </div>
-      
-
-      </div>
-      <div className="my-projects__main">
-        <div className="my-projects__main__title">
-            Мои проекты 
-        </div>
-        <div className="my-projects__main__header">
-            <div className="my-projects__main__header--title">
-                Мои проекты
+    return (
+        <div className="my-projects">
+        <Menu/>
+        <div className="my-projects__main">
+            <div className="my-projects__main__title">
+                {texts.title} 
             </div>
-            {/* <div className="my-projects__main__header--user-info">
-                <div className="my-projects__main__header--user-info__search"></div>
-                <div className="my-projects__main__header--user-info__notification"></div>
-                <div className="my-projects__main__header--user-info__avatar"></div>
-            </div> */}
-        </div>
-        <div className="my-projects__main__projects">
-            <div className="my-projects__main__project">
-                <div className="my-projects__main__project-header">
-                    <div className="my-projects__main__project-header__icon"></div>
+            <div className="my-projects__main__header">
+                <div className="my-projects__main__header--title">
+                    {texts.name} 
+                </div>
+            </div>
+            <div className="my-projects__main__projects">
+                <div className="my-projects__main__project">
+                    <div className="my-projects__main__project-header">
+                        <div className="my-projects__main__project-header__icon">
+                        <CurrentIcon/>
+                        </div>
 
-                    <div className="my-projects__main__project-header__text">
-                        <div className="my-projects__main__project-header__title">Текущие</div>
-                        <div className="my-projects__main__project-header__description">Работаем не покладая рук</div>
+                        <div className="my-projects__main__project-header__text">
+                            <div className="my-projects__main__project-header__title">Текущие</div>
+                            <div className="my-projects__main__project-header__description">Работаем не покладая рук</div>
+                        </div>
+                    </div>
+
+                    <div className="my-projects__main__project__separator"/>
+
+                    <div className="my-projects__main__project-list">
+                        {texts.currentProjects.map(el => {
+                            return (
+                                <div className="my-projects__main__project-link" key={el.ID}>
+                                    <Link to={`/MyProjects/${el.ID}`} className="menu__link-text">{el.TITLE}</Link>
+                                </div>            
+                            )
+                        })}
                     </div>
                 </div>
 
-                <div className="my-projects__main__project__separator"/>
+                <div className="my-projects__main__project">
+                    <div className="my-projects__main__project-header">
+                        <div className="my-projects__main__project-header__icon">
+                        <FinishedProjectIcon/>
+                        </div>
+                        
+                        <div className="my-projects__main__project-header__text">
+                        <div className="my-projects__main__project-header__title">Завершенные</div>
+                            <div className="my-projects__main__project-header__description">Работаем не покладая рук</div>
+                        </div>
+                    </div>
 
-                <div className="my-projects__main__project-list">
-                    <div className="my-projects__main__project-link">Разработка санитарно-защитной зоны</div>
-                    <div className="my-projects__main__project-link">Регистрация ОПО</div>
-                    <div className="my-projects__main__project-link">Разработка проекта ПДВ</div>
+                    <div className="my-projects__main__project__separator"/>
 
-                </div>
-            </div>
-
-            <div className="my-projects__main__project">
-                <div className="my-projects__main__project-header">
-                    <div className="my-projects__main__project-header__icon"></div>
-                    
-                    <div className="my-projects__main__project-header__text">
-                        <div className="my-projects__main__project-header__title">Текущие</div>
-                        <div className="my-projects__main__project-header__description">Работаем не покладая рук</div>
+                    <div className="my-projects__main__project-list">
+                        {texts.finishedProjects.map(el => {
+                            return (
+                                <div className="my-projects__main__project-link" key={el.ID}>
+                                    <Link to={`/MyProjects/${el.ID}`} className="menu__link-text">{el.TITLE}</Link>
+                                </div>            
+                            )
+                        })}
                     </div>
                 </div>
 
-                <div className="my-projects__main__project__separator"/>
+                <div className="my-projects__main__project">
+                    <div className="my-projects__main__project-header">
+                        <div className="my-projects__main__project-header__icon">
+                        <BonusProkectIcon/>
+                        </div>
+                        <div className="my-projects__main__project-header__text">
+                            <div className="my-projects__main__project-header__title">Бонусы</div>
+                            <div className="my-projects__main__project-header__description">Клиенты — наше всё</div>
+                        </div>
+                    </div>
 
-                <div className="my-projects__main__project-list">
-                    <div className="my-projects__main__project-link">Разработка санитарно-защитной зоны</div>
-                    <div className="my-projects__main__project-link">Регистрация ОПО</div>
-                    <div className="my-projects__main__project-link">Разработка проекта ПДВ</div>
+                    <div className="my-projects__main__project__separator"/>
 
-                </div>
-            </div>
-
-            <div className="my-projects__main__project">
-                <div className="my-projects__main__project-header">
-                    <div className="my-projects__main__project-header__icon"></div>
-                    
-                    <div className="my-projects__main__project-header__text">
-                        <div className="my-projects__main__project-header__title">Текущие</div>
-                        <div className="my-projects__main__project-header__description">Работаем не покладая рук</div>
+                    <div className="my-projects__main__project-list">
+                        {texts.bonusProjects.map(el => {
+                                return (
+                                    <div className="my-projects__main__project-link" key={el.ID}>
+                                        <Link to={`/MyProjects/${el.ID}`} className="menu__link-text">{el.TITLE}</Link>
+                                    </div>            
+                                )
+                            })}
                     </div>
                 </div>
 
-                <div className="my-projects__main__project__separator"/>
-
-                <div className="my-projects__main__project-list">
-                    <div className="my-projects__main__project-link">Разработка санитарно-защитной зоны</div>
-                    <div className="my-projects__main__project-link">Регистрация ОПО</div>
-                    <div className="my-projects__main__project-link">Разработка проекта ПДВ</div>
-
-                </div>
             </div>
 
+            <FooterComponent/>
         </div>
-
-        <div className="my-projects__main__footer">
-            <div className="my-projects__main__footer__year">
-                © 1991-2022 Группа Компаний Триада. Все права защищены.
-            </div>
-            <div className="my-projects__main__footer__about">
-                <div className="my-projects__main__footer__about-text">О компании</div>
-                <div className="my-projects__main__footer__about-text">Услуги</div>
-                <div className="my-projects__main__footer__about-text">Контакты</div>
-            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default MyProjects;
