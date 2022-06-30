@@ -14,6 +14,41 @@ import DownLoadIcon from '../components/icons/DownLoadIcon';
 
 import '../styles/CurrentBaseKnowledge.scss';
 
+ // Validate
+ const DateValidate=(date)=>{
+    const arrDate =date.split('-');
+    let monString;
+    switch(arrDate[1]) {
+        case '01':  monString='января'
+        break;
+        case '02':  monString='февраля'
+        break;
+        case '03':  monString='марта'
+        break;
+        case '04':  monString='апреля'
+        break;
+        case '05':  monString='мая'
+        break;
+        case '06':  monString='июня'
+        break;
+        case '07':  monString='июля'
+        break;
+        case '08':  monString='августа'
+        break;
+        case '09':  monString='сентября'
+        break;
+        case '10':  monString='октября'
+        break;
+        case '11':  monString='ноября'
+        break;
+        case '12':  monString='декабря'
+        break;
+        default:    monString=arrDate[1]                
+      } 
+    const validateDate = `${arrDate[2]} ${monString} ${arrDate[0]}`;
+    return validateDate    
+}
+
 const MyProjects = (props) => {
 
     const {dealId} =useParams();
@@ -21,8 +56,8 @@ const MyProjects = (props) => {
 
     // Viev
     const TITLE =deal.TITLE;
-    const RESUME =deal.UF_CRM_1656522246714;
-    const CLOSEDATE =deal.UF_CRM_1631884740441?deal.UF_CRM_1631884740441.substring(0, 10): null;
+    const RESUME =deal.UF_CRM_1656522246714?deal.UF_CRM_1656522246714:'Описание результата отсутствует ';
+    const CLOSEDATE =deal.UF_CRM_1631884740441?deal.UF_CRM_1631884740441.substring(0, 10): null;   
 
     const getDeal= () => {
         getDealService(dealId)
@@ -40,6 +75,9 @@ const MyProjects = (props) => {
 
     useEffect(()=>{
         console.log('update ');
+        // if(CLOSEDATE!=null){
+        //     console.log(DateValidate(CLOSEDATE));
+        // }        
         console.log(deal);
     },[deal]);
 
@@ -74,7 +112,7 @@ const MyProjects = (props) => {
                         </div>
                             Дата завершения
                     </div>
-                    {CLOSEDATE}
+                    {CLOSEDATE?DateValidate(CLOSEDATE):'не известно'}
                 </div>
             </div>
 
