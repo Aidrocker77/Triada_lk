@@ -16,19 +16,19 @@ function MyProjects() {
     const [dealList ,setDealList]=useState([]);
 
      //Filters
-     const currentDeals =dealList? dealList.filter(deal => {
+     const currentDeals = dealList? dealList.filter(deal => {
         if(deal.STAGE_ID == 'C61:FINAL_INVOICE' || deal.STAGE_ID == "C75:PREPAYMENT_INVOIC"){
             return deal
         }        
     }):null;
-    const completedDeals = dealList?dealList.filter(deal => {
+    const completedDeals = dealList? dealList.filter(deal => {
         if(deal.STAGE_ID == 'C61:WON' || deal.STAGE_ID == 'C75:WON'){
             return deal
         }        
     }):null;
 
     const getDealList= () => {
-        getDealListService()
+        getDealListService()   
         .then((res) => {
             setDealList(res);
         })
@@ -42,12 +42,12 @@ function MyProjects() {
     },[]);
 
     // Тестовая функция ,для разработки
-    // useEffect(()=>{
-    //     const map =texts.currentProjects.map(el => {
-    //         return el
-    //     })
-    //     console.log(map);        
-    // },[dealList]);
+    useEffect(()=>{
+        // const map =texts.currentProjects.map(el => {
+        //     return el
+        // })
+        // console.log(currentDeals);        
+    },[dealList]);
 
     const texts = {
         title: ' Мои проекты',
@@ -86,6 +86,9 @@ function MyProjects() {
 
                     <div className="my-projects__main__project-list">
                         {texts.currentProjects.map(el => {
+                            // TO DO - идет перебор масива сделок , по идее должен выводится каждый элемент 
+                            // по факту в консоль выводится каждый элемент ,а на странице отображается только первый 
+                            // console.log(el)
                             return (
                                 <div className="my-projects__main__project-link" key={el.ID}>
                                     <Link to={`/MyProjects/${el.ID}`} className="menu__link-text">{el.TITLE}</Link>
